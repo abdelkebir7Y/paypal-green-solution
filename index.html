@@ -31,9 +31,6 @@
       let amount = 1500;
       
         paypal.Buttons({
-          createOrder: (data, actions) => {
-            // Set up the transaction
-            
           createOrder: async (data, actions) => {
             // Set up the transaction
             const paypalCurrency = "USD";
