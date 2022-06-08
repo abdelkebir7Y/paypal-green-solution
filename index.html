@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,7 +46,11 @@
               }
             )
             const responseJson = await response.json();
-            amount = amount / responseJson["Realtime Currency Exchange Rate"]["5. Exchange Rate"];
+            if(responseJson["Realtime Currency Exchange Rate"]["5. Exchange Rate"]) {
+              amount = amount / responseJson["Realtime Currency Exchange Rate"]["5. Exchange Rate"];
+            }else{
+              amount = amount/10;
+            }
             return actions.order.create({
               purchase_units: [{
                 amount: {
